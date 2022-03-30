@@ -1,7 +1,7 @@
 # Wit Command Helper Lite
 
 [Wiimms ISO Tools (wit)](https://wit.wiimm.de/) を使ったディスクイメージ (WBFS / ISO形式ファイル) の操作を、手助けするための簡易的なCLIプログラムです。<br>
-*これは最小限の機能しかないLite版ですが、より豊富な機能を備えたノーマルエディションも現在開発しています。*
+**これよりも豊富な機能を備えたノーマルエディションは[こちら](https://github.com/esuo1198/wit-cmd-helper)**
 
 
 ### 各OSで使えるプログラムの形式
@@ -82,6 +82,13 @@ sudo emerge --ask app-shells/zsh
 ```zsh
 sh wit-cmd-helper-lite.sh
 ```
+
+## 〈Changelog〉
+#### 1.0.1
+- 拡張子が大文字の場合に弾かれるバグの修正
+
+#### 1.0.0
+- 初リリース
 
 ## 〈Dev / Test Environment〉
 #### Batch

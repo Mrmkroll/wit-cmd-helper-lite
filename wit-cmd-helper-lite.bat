@@ -140,11 +140,17 @@ exit /b
 
 :get_ext
 set GOT_EXT=%~x1
-if "%GOT_EXT%"=="" set GOT_EXT=NONE
+if "%GOT_EXT%"=="" ( set GOT_EXT=NONE ) else ( call :to_lower %GOT_EXT% )
 exit /b
 
 :get_path
 set GOT_F_PATH=%~dpn1 & set GOT_PATH=%~dp1 & set GOT_FL_PATH=%~1
+exit /b
+
+::-----------------------------------------------------------------------------
+:to_lower
+set GOT_EXT=%1
+for %%i in (a b c d e f g h i j k l m n o p q r s t u v w x y z) do call set GOT_EXT=%%GOT_EXT:%%i=%%i%%
 exit /b
 
 ::-----------------------------------------------------------------------------

@@ -9,7 +9,7 @@ pause() {
 get_path(){
     if [ "$1" = "dir" ]; then
         got_ext="wbfs"
-        while [ "$got_ext" = "wbfs" ] || [ "$got_ext" = "iso" ]
+        while [ "${got_ext:l}" = "wbfs" ] || [ "${got_ext:l}" = "iso" ]
         do
             echo "Please drag and drop the disk image folder."
             read got_path
@@ -18,7 +18,7 @@ get_path(){
         done
     else
         got_ext=""
-        while [ "$got_ext" != "wbfs" ] && [ "$got_ext" != "iso" ]
+        while [ "${got_ext:l}" != "wbfs" ] && [ "${got_ext:l}" != "iso" ]
         do
             echo "Please drag and drop the disk image."
             read got_path
@@ -43,7 +43,7 @@ extension(){
 }
 
 convert(){
-    if [ "$got_ext" = "wbfs" ]; then
+    if [ "${got_ext:l}" = "wbfs" ]; then
         wit copy $got_path -P -d ${got_path%.*}.iso
     else
         wit copy $got_path -P -d ${got_path%.*}.wbfs
@@ -68,7 +68,7 @@ create(){
         dir_path=${got_path%/*}
         wit copy $got_path -P -d $dir_path"/"$file_name.$ex
     else
-        if [ "$got_ext" = "tmp" ]; then
+        if [ "${got_ext:l}" = "tmp" ]; then
             wit copy $got_path -P -d ${got_path%.*}.$ex
         fi
         wit copy $got_path -P -d $got_path.$ex
